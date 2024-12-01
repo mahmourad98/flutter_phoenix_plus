@@ -7,12 +7,14 @@ void main() {
   runApp(
     /// 1. Wrap your App widget in the Phoenix widget
     Phoenix(
-      child: App(),
+      child: const App(),
     ),
   );
 }
 
 class App extends StatelessWidget {
+  const App({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -23,10 +25,9 @@ class App extends StatelessWidget {
 }
 
 class SplashScreen extends StatefulWidget {
-  const SplashScreen();
+  const SplashScreen({Key? key,}) : super(key: key,);
 
-  @override
-  _SplashScreenState createState() => _SplashScreenState();
+  @override State<SplashScreen> createState() => _SplashScreenState();
 }
 
 class _SplashScreenState extends State<SplashScreen> {
@@ -75,7 +76,7 @@ class _SplashScreenState extends State<SplashScreen> {
 }
 
 class MainScreen extends StatelessWidget {
-  const MainScreen();
+  const MainScreen({Key? key,}) : super(key: key,);
 
   @override
   Widget build(BuildContext context) {
@@ -110,7 +111,6 @@ class MainScreen extends StatelessWidget {
                 child: TextButton(
                   style: TextButton.styleFrom(
                     backgroundColor: Colors.red,
-                    primary: Colors.white,
                   ),
                   child: const Text('Phoenix.rebirth(context);'),
 
